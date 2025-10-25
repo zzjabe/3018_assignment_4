@@ -4,3 +4,5 @@ dist/
 # Logs
 logs/
 *.log
+
+jianbin_sdk.json
