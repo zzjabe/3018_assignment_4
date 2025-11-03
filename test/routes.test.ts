@@ -102,7 +102,7 @@ describe("API Routes Authorization Tests", () => {
         expect(response.body.message).toContain("Loan loan123 has been reviewed");
     });
 
-    
+
     it("should allow manager to approve a loan", async () => {
         const response = await request(app)
             .put("/api/v1/loans/loan123/approve")
@@ -110,5 +110,21 @@ describe("API Routes Authorization Tests", () => {
 
         expect(response.status).toBe(HTTP_STATUS.OK);
         expect(response.body.message).toContain("Loan loan123 has been approved");
+    });
+
+    it("should forbid wrong role from reviewing a loan", async () => {
+        const response = await request(app)
+            .put("/api/v1/loans/loan123/review")
+            .set("x-mock-role", "user");
+
+        expect(response.status).toBe(403);
+    });
+
+    it("should forbid wrong role from approving a loan", async () => {
+        const response = await request(app)
+            .put("/api/v1/loans/loan123/approve")
+            .set("x-mock-role", "officer");
+
+        expect(response.status).toBe(403);
     });
 });
