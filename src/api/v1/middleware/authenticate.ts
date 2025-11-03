@@ -22,7 +22,7 @@ import { auth } from "../../../config/firebaseConfig";
  * @param {NextFunction} next - The next middleware function.
  * @returns {Promise<void>}
  */
-const authenticate = async (
+export const authenticate = async (
     req: Request,
     res: Response,
     next: NextFunction

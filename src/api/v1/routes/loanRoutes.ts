@@ -4,8 +4,8 @@ import {getLoans,
         reviewLoan, 
         approveLoan} 
 from "../controllers/loanController";
-import authenticate from "../middleware/authenticate";
-import isAuthorized from "../middleware/authorize"
+import { authenticate } from "../middleware/authenticate";
+import { isAuthorized } from "../middleware/authorize"
 
 const router: Router = express.Router();
 
