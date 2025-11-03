@@ -70,4 +70,15 @@ describe("API Routes Authorization Tests", () => {
         expect(response.status).toBe(403);
         expect(response.body.error).toBe("Forbidden: Insufficient role");
     });
+
+
+    it("should allow manager/officer to get all loans", async () => {
+        const response = await request(app)
+            .get("/api/v1/loans")
+            .set("x-mock-role", "manager");
+
+        expect(response.status).toBe(HTTP_STATUS.OK);
+        expect(response.body.message).toContain("Got all loans successfully");
+    });
+
 });
