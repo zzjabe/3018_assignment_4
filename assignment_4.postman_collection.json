@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "aa2f2311-94fb-47a1-af1c-d5ebf560a445",
+		"name": "assignment_4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48186694",
+		"_collection_link": "https://jianbinzhang-06ca0cd2-9230363.postman.co/workspace/Jianbin-Zhang's-Workspace~7f800253-0884-4c80-882d-60ad76f23e02/collection/48186694-aa2f2311-94fb-47a1-af1c-d5ebf560a445?action=share&source=collection_link&creator=48186694"
+	},
+	"item": [
+		{
+			"name": "get admin token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jianbin5127@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"returnSecureToken\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIZp6Xgoc-tk0Qgay6f7BTy0iS6cwoS7Q",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signInWithPassword"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyCIZp6Xgoc-tk0Qgay6f7BTy0iS6cwoS7Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "setClaims",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjdlYTA5ZDA1NzI2MmU2M2U2MmZmNzNmMDNlMDRhZDI5ZDg5Zjg5MmEiLCJ0eXAiOiJKV1QifQ.eyJyb2xlIjoiYWRtaW4iLCJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vYXNzaWdubWVudC02NTQwNiIsImF1ZCI6ImFzc2lnbm1lbnQtNjU0MDYiLCJhdXRoX3RpbWUiOjE3NjIxNTIxOTAsInVzZXJfaWQiOiIwSUI2dDNXdjNkTVVkVEtVUm9HQjNHWVF3T2YxIiwic3ViIjoiMElCNnQzV3YzZE1VZFRLVVJvR0IzR1lRd09mMSIsImlhdCI6MTc2MjE1MjE5MCwiZXhwIjoxNzYyMTU1NzkwLCJlbWFpbCI6ImppYW5iaW41MTI3QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJqaWFuYmluNTEyN0BnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.DJ2ggTAx0wlIPE5tjFo5KUoRFrM2Uyu1IoXBk_krVreSgKy5gzMfTeUHd09PoCnxiZQjEE1ysgqsJLQXZ9kx3psx6JbEevBEpXsFcnWNMLjan3mdAPhGMW7chFaxWeyPLH_f8tP5ApLc8O5srkT-mUyGV9K86I-eEHVfl3y0MXmfmSQ3rNI1fG3ilpWhWmNILUFz0rFIdy_FCCkJEj0lXyy1zCkbNb77D6el4GsBIMdEDig4yM1_xhVKR8BiMMnr474TadoVeYcsZezOE1D4gxHqlfXWgW_j4XerMyNtkOcTRlude1CA9z61RekoVNXQe5RZareJHXQzWVls0IBOTg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"uid\": \"nKVGSyV4wRfiSY5KFg78HH7s83i2\",\r\n  \"claims\": {\r\n    \"role\": \"user\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/admin/setCustomClaims",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"admin",
+						"setCustomClaims"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get manager token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jianbin1@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"returnSecureToken\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIZp6Xgoc-tk0Qgay6f7BTy0iS6cwoS7Q",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signInWithPassword"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyCIZp6Xgoc-tk0Qgay6f7BTy0iS6cwoS7Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test manager",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjdlYTA5ZDA1NzI2MmU2M2U2MmZmNzNmMDNlMDRhZDI5ZDg5Zjg5MmEiLCJ0eXAiOiJKV1QifQ.eyJyb2xlIjoibWFuYWdlciIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9hc3NpZ25tZW50LTY1NDA2IiwiYXVkIjoiYXNzaWdubWVudC02NTQwNiIsImF1dGhfdGltZSI6MTc2MjE1MjMwMiwidXNlcl9pZCI6IkJqSzJxQkhmcUllaG11UVhZRlBYSXQ1T3hieTEiLCJzdWIiOiJCaksycUJIZnFJZWhtdVFYWUZQWEl0NU94YnkxIiwiaWF0IjoxNzYyMTUyMzAyLCJleHAiOjE3NjIxNTU5MDIsImVtYWlsIjoiamlhbmJpbjFAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImppYW5iaW4xQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.TRUKj65m8zhh_3AIuJAE9CJf0H2nAOJ5aTKWHkJTgJTsL5uRPpj1r9GN4lEKFUVq1HrmhotCdsCAR9on7d8uRUqfh7KfbYczPQZ6ZNwTLwOPUsw_FJ6Dv0eYv-o1W58OpDI3qY2ySo4eYCsneptnrCPbJLM2q6WcZJ-nvxToC_rNRr2YYK0YR5bw2gm12S5wGyr7NHeGfmvnCNibNQgxi4wSiwd9SkKFdsVri_2F5QHhZxRyIF81XQGQ6X-E8iSt6DT_c7nYXLDh_bc2fD6FwMQxObMz-Uvj2rMsB07Q1anyGUUp70aBtVGfyWKmmSlsHKURwEq3I9YtmS6wWVUcNA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/loans/1/approve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"loans",
+						"1",
+						"approve"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get officer token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jianbin2@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"returnSecureToken\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIZp6Xgoc-tk0Qgay6f7BTy0iS6cwoS7Q",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signInWithPassword"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyCIZp6Xgoc-tk0Qgay6f7BTy0iS6cwoS7Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test officer",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjdlYTA5ZDA1NzI2MmU2M2U2MmZmNzNmMDNlMDRhZDI5ZDg5Zjg5MmEiLCJ0eXAiOiJKV1QifQ.eyJyb2xlIjoib2ZmaWNlciIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9hc3NpZ25tZW50LTY1NDA2IiwiYXVkIjoiYXNzaWdubWVudC02NTQwNiIsImF1dGhfdGltZSI6MTc2MjE1MjM0MiwidXNlcl9pZCI6Im9BMzhLS3J5N2hkekxXWEd3RXdDcGxpd2JxVzIiLCJzdWIiOiJvQTM4S0tyeTdoZHpMV1hHd0V3Q3BsaXdicVcyIiwiaWF0IjoxNzYyMTUyMzQyLCJleHAiOjE3NjIxNTU5NDIsImVtYWlsIjoiamlhbmJpbjJAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImppYW5iaW4yQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.PxFkK9LOvojaw09hFlLCCsYpIDUkHSc_tPUKmn1F16LTtmLJ7qYbgZfU0USKaegprrsEhUs_92MR1DZEndrAK4-KXZ9KdoAI2KNTHas0bX0ULM-thUDd21FC0dZe5R-4lJHAfVeRDVQNJlqEXHhi3B0UIEFExuaiLaRbLM5d3UCtIcuJcnn84XRY_9GMBTs0_paYY7ZQXl62X2RN2Ea2xlIE8v5wH-OzZcc4qxxfSuW0-q0HiGplqny863u1B09kveO2hwmppu3dGqgI_azXd0hFsu1TjPeqZhJZqCQDptCwRqNPA9GQ3AnsHJ7ETHLYzo5Om0yxV4Q40yIiZil4zg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/loans/3/review",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"loans",
+						"3",
+						"review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jianbin3@gmail.com\",\r\n    \"password\": \"password123\",\r\n    \"returnSecureToken\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIZp6Xgoc-tk0Qgay6f7BTy0iS6cwoS7Q",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signInWithPassword"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyCIZp6Xgoc-tk0Qgay6f7BTy0iS6cwoS7Q"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjdlYTA5ZDA1NzI2MmU2M2U2MmZmNzNmMDNlMDRhZDI5ZDg5Zjg5MmEiLCJ0eXAiOiJKV1QifQ.eyJyb2xlIjoidXNlciIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS9hc3NpZ25tZW50LTY1NDA2IiwiYXVkIjoiYXNzaWdubWVudC02NTQwNiIsImF1dGhfdGltZSI6MTc2MjE1MjM2NSwidXNlcl9pZCI6Im5LVkdTeVY0d1JmaVNZNUtGZzc4SEg3czgzaTIiLCJzdWIiOiJuS1ZHU3lWNHdSZmlTWTVLRmc3OEhIN3M4M2kyIiwiaWF0IjoxNzYyMTUyMzY1LCJleHAiOjE3NjIxNTU5NjUsImVtYWlsIjoiamlhbmJpbjNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImppYW5iaW4zQGdtYWlsLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.pBUFiguAQyFBlfg9O8dgTwCMnZG-0hO2vPemqsyfuz3e4OWjotY65u8HT75XglIhsBTuAmRVDmlCwE1lbXhy2hpuuaeHxZ3snsnI6syUbkABIOCyNwhVZ4IW3yjics1cTaDdMv4-higV6SMX2I4IIQasgTm2GH5sW4r9B9EyxCIbVORXfedVBb6cbyoGbxq6nAad5p8QEx1k2F54qWHnB-x_GnSxkhUoYGFdDC5vy4Zb1FY-jVPe4MwJ-1l5OKL_3KsCz6CnHDD-eYdf90G53oyJo-K8uJk8f6jfbMiavJ7vceVwgW8LBqxLuEnccOd5houpSQCgaET2puGQc9GZ2g",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\": \"$100,000\",\r\n    \"time\": \"10 years\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/loans",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"loans"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
