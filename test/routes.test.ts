@@ -81,7 +81,7 @@ describe("API Routes Authorization Tests", () => {
         expect(response.body.message).toContain("Got all loans successfully");
     });
 
-    
+
     it("should allow user to create a loan", async () => {
         const newLoan = { amount: 1000, term: 12 };
         const response = await request(app)
@@ -91,5 +91,14 @@ describe("API Routes Authorization Tests", () => {
 
         expect(response.status).toBe(HTTP_STATUS.CREATED);
         expect(response.body.loan).toEqual(newLoan);
+    });
+
+    it("should allow officer to review a loan", async () => {
+        const response = await request(app)
+            .put("/api/v1/loans/loan123/review")
+            .set("x-mock-role", "officer");
+
+        expect(response.status).toBe(HTTP_STATUS.OK);
+        expect(response.body.message).toContain("Loan loan123 has been reviewed");
     });
 });
