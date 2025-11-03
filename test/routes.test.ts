@@ -101,4 +101,14 @@ describe("API Routes Authorization Tests", () => {
         expect(response.status).toBe(HTTP_STATUS.OK);
         expect(response.body.message).toContain("Loan loan123 has been reviewed");
     });
+
+    
+    it("should allow manager to approve a loan", async () => {
+        const response = await request(app)
+            .put("/api/v1/loans/loan123/approve")
+            .set("x-mock-role", "manager");
+
+        expect(response.status).toBe(HTTP_STATUS.OK);
+        expect(response.body.message).toContain("Loan loan123 has been approved");
+    });
 });
